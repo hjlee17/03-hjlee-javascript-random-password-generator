@@ -7,74 +7,102 @@ THEN I choose a length of at least 8 characters and no more than 128 characters 
 /* RL -- asks user for length of password, 
 then converts that string to an integer */
 var generatePassword = function () {
-  var length = window.prompt('Choose a password length of 8-128 characters:',);
-  var pwLength = parseInt(length);
+  while (true) {
+    var length = window.prompt('choose a password length of 8-128 characters:',);
+  // RL NOT COMPLETED -- if user cancels, next prompt does not continue
+    if (length === null) {
+    console.log("canceled.");
+    break; 
+  }
+    var pwLength = parseInt(length);
 
+      // RL -- if input is not a number from 8-128 or if it is not a number, asks for input again
+      if (isNaN(pwLength)) {
+        window.alert("not a number. enter a number between 8 and 128.");
+      } else if (pwLength < 8 || pwLength > 128) {
+        window.alert("invalid length. enter a number between 8 and 128.");
+      } else {
+        break; 
+      }
+  }
 
   // code below is to test the below code, can be removed
   console.log (pwLength + 10);
   
 
 
-  // README -- WHEN asked for character types to include in the password
 
-  // README -- THEN I confirm whether or not to include lowercase, 
-  // RL -- asks user whether or not to include lowercase letters, 
-  var lowercasePrompt= window.prompt('include lowercase characters? y or n:');
-  lowercasePrompt = lowercasePrompt.toLowerCase();
+  // RL -- asks user whether or not to include lowercase letters,
+  while (true) {
+    var lowercasePrompt= window.prompt('include lowercase characters? y or n:');
+    lowercasePrompt = lowercasePrompt.toLowerCase();
 
-  // RL -- then declare a variable where the choice will be stored as a boolean 
-  var lowercaseChoice;
+    // RL -- then declare a variable where the choice will be stored as a boolean 
+    var lowercaseChoice;
 
-  // RL -- converts lowercasePromt y or n answer and stores as a boolean
-  if (lowercasePrompt === 'y') {
-    lowercaseChoice = true;
-  } else if (lowercasePrompt === 'n') {
-    lowercaseChoice = false;
-  } else {
-    console.log("invalid, enter 'y' to use lowercase letters or 'n'");
+    // RL -- converts lowercasePrompt y or n answer and stores as a boolean
+    // RL -- if user does not input a y or n, asks again for input.
+    if (lowercasePrompt === 'y') {
+      lowercaseChoice = true;
+      break; 
+    } else if (lowercasePrompt === 'n') {
+      lowercaseChoice = false;
+      break; 
+    } else {
+      window.alert("invalid, enter 'y' to use lowercase letters or 'n' to skip.");
+    }
   }
+
   // code below is to test the below code, can be removed
   console.log("lowercase choice:", lowercaseChoice);
 
 
-  // README include uppercase
+
   // RL -- asks user whether or not to include uppercase letters, 
-  var uppercasePrompt= window.prompt('include uppercase characters? y or n:');
-  uppercasePrompt = uppercasePrompt.toLowerCase();
+  while (true) {
+    var uppercasePrompt= window.prompt('include uppercase characters? y or n:');
+    uppercasePrompt = uppercasePrompt.toLowerCase();
   
-  // RL -- then declare a variable where the choice will be stored as a boolean 
-  var uppercaseChoice;
+    // RL -- then declare a variable where the choice will be stored as a boolean 
+    var uppercaseChoice;
   
-  // RL -- converts uppercasePrompt y or n answer and stores as a boolean
-  if (uppercasePrompt === 'y') {
-    uppercaseChoice = true;
-  } else if (uppercasePrompt === 'n') {
-    uppercaseChoice = false;
-  } else {
-    console.log("invalid, enter 'y' to use uppercase letters or 'n'");
+    // RL -- converts uppercasePrompt y or n answer and stores as a boolean
+    // RL -- if user does not input a y or n, asks again for input.
+    if (uppercasePrompt === 'y') {
+      uppercaseChoice = true;
+      break; 
+    } else if (uppercasePrompt === 'n') {
+      uppercaseChoice = false;
+      break; 
+    } else {
+      window.alert("invalid, enter 'y' to use uppercase letters or 'n' to skip.");
+    }
   }
-  
+
   // code below is to test the below code, can be removed
   console.log("uppercase choice:", uppercaseChoice);
 
 
 
-  // README -- include numeric
   // RL -- asks user whether or not to include numbers, 
-  var numbercharPrompt= window.prompt('include numeric characters? y or n:');
-  numbercharPrompt = numbercharPrompt.toLowerCase();
-      
-  // RL -- then declare a variable where the choice will be stored as a boolean 
-  var numbercharChoice;
-      
-  // RL -- converts uppercasePrompt y or n answer and stores as a boolean
-  if (numbercharPrompt === 'y') {
-    numbercharChoice = true;
-  } else if (numbercharPrompt === 'n') {
-    numbercharChoice = false;
-  } else {
-    console.log("invalid, enter 'y' to use numeric characters or 'n'");
+  while (true) {
+    var numbercharPrompt= window.prompt('include numeric characters? y or n:');
+    numbercharPrompt = numbercharPrompt.toLowerCase();
+        
+    // RL -- then declare a variable where the choice will be stored as a boolean 
+    var numbercharChoice;
+        
+    // RL -- converts numbercharPrompt y or n answer and stores as a boolean
+    // RL -- if user does not input a y or n, asks again for input.
+    if (numbercharPrompt === 'y') {
+      numbercharChoice = true;
+      break; 
+    } else if (numbercharPrompt === 'n') {
+      numbercharChoice = false;
+      break; 
+    } else {
+      window.alert("invalid, enter 'y' to use numeric characters or 'n' to skip.");
+    }
   }
       
   // code below is to test the below code, can be removed
@@ -82,23 +110,27 @@ var generatePassword = function () {
 
 
 
-  // README -- include special characters
   // RL -- asks user whether or not to special characters, 
-  var specialcharPrompt= window.prompt('include special characters? y or n:');
-  specialcharPrompt = specialcharPrompt.toLowerCase();
-        
-  // RL -- then declare a variable where the choice will be stored as a boolean 
-  var specialcharChoice;
-        
-  // RL -- converts uppercasePrompt y or n answer and stores as a boolean
-  if (specialcharPrompt === 'y') {
-    specialcharChoice = true;
-  } else if (specialcharPrompt === 'n') {
-    specialcharChoice = false;
-  } else {
-    console.log("invalid, enter 'y' to use special characters or 'n'");
+  while (true) {
+    var specialcharPrompt= window.prompt('include special characters? y or n:');
+    specialcharPrompt = specialcharPrompt.toLowerCase();
+          
+    // RL -- then declare a variable where the choice will be stored as a boolean 
+    var specialcharChoice;
+          
+    // RL -- converts specialcharPrompt y or n answer and stores as a boolean
+    // RL -- if user does not input a y or n, asks again for input.
+    if (specialcharPrompt === 'y') {
+      specialcharChoice = true;
+      break; 
+    } else if (specialcharPrompt === 'n') {
+      specialcharChoice = false;
+      break; 
+    } else {
+      window.alert("invalid, enter 'y' to use special characters or 'n' to skip.");
+    }
   }
-        
+          
   // code below is to test the below code, can be removed
   console.log("special characters:", specialcharChoice);
 
@@ -129,6 +161,13 @@ var generatePassword = function () {
   // code below is to test the below code, can be removed
   console.log("available characters: " + allChars);
 
+
+
+  // RL? instead of asking user to start over, can i send them back to start over with the character prompts?
+  if (allChars === "") {
+    window.alert("no character types were selected. at least one must be selected. restart the process.");
+    return ''; 
+  }
 
 
   // RL -- finally, take all that information and generate a password at the given length
