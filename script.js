@@ -1,9 +1,6 @@
 //  STARTER CODE -- Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-/* README -- WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters */
-
 /* RL -- asks user for length of password, 
 then converts that string to an integer */
 var generatePassword = function () {
