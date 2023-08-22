@@ -3,13 +3,16 @@ var generateBtn = document.querySelector("#generate");
 
 /* RL -- asks user for length of password, 
 then converts that string to an integer */
+
 var generatePassword = function () {
-  while (true) {
+  var step = 0;
+  while (step === 0) {
     var length = window.prompt('choose a password length of 8-128 characters:',);
-  // RL NOT COMPLETED -- if user cancels, next prompt does not continue
     if (length === null) {
     console.log("canceled.");
+    step = false;
     break; 
+
   }
     var pwLength = parseInt(length);
 
@@ -19,6 +22,7 @@ var generatePassword = function () {
       } else if (pwLength < 8 || pwLength > 128) {
         window.alert("invalid length. enter a number between 8 and 128.");
       } else {
+        step = 1;
         break; 
       }
   }
@@ -30,7 +34,7 @@ var generatePassword = function () {
 
 
   // RL -- asks user whether or not to include lowercase letters,
-  while (true) {
+  while (step === 1) {
     var lowercasePrompt= window.prompt('include lowercase characters? y or n:');
     lowercasePrompt = lowercasePrompt.toLowerCase();
 
@@ -41,9 +45,11 @@ var generatePassword = function () {
     // RL -- if user does not input a y or n, asks again for input.
     if (lowercasePrompt === 'y') {
       lowercaseChoice = true;
+      step = 2;
       break; 
     } else if (lowercasePrompt === 'n') {
       lowercaseChoice = false;
+      step = 2;
       break; 
     } else {
       window.alert("invalid, enter 'y' to use lowercase letters or 'n' to skip.");
@@ -56,7 +62,7 @@ var generatePassword = function () {
 
 
   // RL -- asks user whether or not to include uppercase letters, 
-  while (true) {
+  while (step === 2) {
     var uppercasePrompt= window.prompt('include uppercase characters? y or n:');
     uppercasePrompt = uppercasePrompt.toLowerCase();
   
@@ -67,9 +73,11 @@ var generatePassword = function () {
     // RL -- if user does not input a y or n, asks again for input.
     if (uppercasePrompt === 'y') {
       uppercaseChoice = true;
+      step = 3;
       break; 
     } else if (uppercasePrompt === 'n') {
       uppercaseChoice = false;
+      step = 3;
       break; 
     } else {
       window.alert("invalid, enter 'y' to use uppercase letters or 'n' to skip.");
@@ -82,7 +90,7 @@ var generatePassword = function () {
 
 
   // RL -- asks user whether or not to include numbers, 
-  while (true) {
+  while (step === 3) {
     var numbercharPrompt= window.prompt('include numeric characters? y or n:');
     numbercharPrompt = numbercharPrompt.toLowerCase();
         
@@ -93,9 +101,11 @@ var generatePassword = function () {
     // RL -- if user does not input a y or n, asks again for input.
     if (numbercharPrompt === 'y') {
       numbercharChoice = true;
+      step = 4;
       break; 
     } else if (numbercharPrompt === 'n') {
       numbercharChoice = false;
+      step = 4;
       break; 
     } else {
       window.alert("invalid, enter 'y' to use numeric characters or 'n' to skip.");
@@ -108,7 +118,7 @@ var generatePassword = function () {
 
 
   // RL -- asks user whether or not to special characters, 
-  while (true) {
+  while (step === 4) {
     var specialcharPrompt= window.prompt('include special characters? y or n:');
     specialcharPrompt = specialcharPrompt.toLowerCase();
           
@@ -161,7 +171,7 @@ var generatePassword = function () {
 
 
   // RL? instead of asking user to start over, can i send them back to start over with the character prompts?
-  if (allChars === "") {
+  if (allChars === "" && step !== false) {
     window.alert("no character types were selected. at least one must be selected. restart the process.");
     return ''; 
   }
@@ -183,10 +193,12 @@ var generatePassword = function () {
       to the generatedPassword string using the "charAt" and the += */
     }
 
+    // code below is to test the below code, can be removed
+    console.log("Generated Password:", generatedPassword);
+
   return generatedPassword;
 
-  // code below is to test the below code, can be removed
-  console.log("Generated Password:", generatedPassword);
+
 }
 
 // STARTER CODE -- Write password to the #password input
