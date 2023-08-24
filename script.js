@@ -35,7 +35,7 @@ var generatePassword = function () {
     var lowercasePrompt= window.prompt('include lowercase characters? y or n:');
     lowercasePrompt = lowercasePrompt.toLowerCase();
 
-    // RL -- then declare a variable where the choice will be stored as a boolean 
+    // RL -- declare variable where choice is stored as a boolean 
     var lowercaseChoice;
 
     // RL -- converts lowercasePrompt y or n answer and stores as a boolean
@@ -53,7 +53,7 @@ var generatePassword = function () {
     }
   }
 
-  // code below is to test the below code, can be removed
+  // code below is to test the above code, can be removed
   console.log("lowercase choice:", lowercaseChoice);
 
   // RL -- asks user whether or not to include uppercase letters, 
@@ -61,7 +61,7 @@ var generatePassword = function () {
     var uppercasePrompt= window.prompt('include uppercase characters? y or n:');
     uppercasePrompt = uppercasePrompt.toLowerCase();
   
-    // RL -- then declare a variable where the choice will be stored as a boolean 
+    // RL -- declare variable where choice is stored as a boolean 
     var uppercaseChoice;
   
     // RL -- converts uppercasePrompt y or n answer and stores as a boolean
@@ -79,7 +79,7 @@ var generatePassword = function () {
     }
   }
 
-  // code below is to test the below code, can be removed
+  // code below is to test the above code, can be removed
   console.log("uppercase choice:", uppercaseChoice);
 
   // RL -- asks user whether or not to include numbers, 
@@ -87,7 +87,7 @@ var generatePassword = function () {
     var numbercharPrompt= window.prompt('include numeric characters? y or n:');
     numbercharPrompt = numbercharPrompt.toLowerCase();
         
-    // RL -- then declare a variable where the choice will be stored as a boolean 
+    // RL -- declare variable where choice is stored as a boolean
     var numbercharChoice;
         
     // RL -- converts numbercharPrompt y or n answer and stores as a boolean
@@ -105,7 +105,7 @@ var generatePassword = function () {
     }
   }
       
-  // code below is to test the below code, can be removed
+  // code below is to test the above code, can be removed
   console.log("numeric characters:", numbercharChoice);
 
   // RL -- asks user whether or not to special characters, 
@@ -113,7 +113,7 @@ var generatePassword = function () {
     var specialcharPrompt= window.prompt('include special characters? y or n:');
     specialcharPrompt = specialcharPrompt.toLowerCase();
           
-    // RL -- then declare a variable where the choice will be stored as a boolean 
+    // RL -- declare variable where choice is stored as a booleanan 
     var specialcharChoice;
           
     // RL -- converts specialcharPrompt y or n answer and stores as a boolean
@@ -153,10 +153,10 @@ var generatePassword = function () {
       allChars += specialChars;
     }
 
-  // code below is to test the below code, can be removed
+  // code below is to test the above code, can be removed
   console.log("available characters: " + allChars);
 
-  // RL -- send them back to start over with the character prompts?
+  // RL -- send them back to start over with the character prompts if user hasn't selected any of the four char types
   if (allChars === "" && step !== false) {
     window.alert("no character types were selected. at least one must be selected. restart the process.");
     return ''; 
@@ -166,20 +166,20 @@ var generatePassword = function () {
   // RL -- finally, take all that information and generate a password at the given length
   var generatedPassword = '';  // empty string to store the password
     for (var i = 0; i < pwLength; i++) {   
-      /* loop will continue as long as i < pwLength, 
+      /* loop continues as long as i < pwLength, 
       i++ means i = i + 1 */
       var randomIndex = Math.floor(Math.random() * allChars.length);   
-      /* var randomIndex will be a random number (that falls within the length of the allChar string)
+      /* var randomIndex will be a random number equal to or less than length of allChars
       Math.random() = random decimal between 0 and 1
       multiplying this by allChars.length = random number within length of allChars
-      Math.floor() rounds down the decimal to the nearest whole number.*/
+      Math.floor() rounds down the decimal */
       generatedPassword += allChars.charAt(randomIndex);
       /*every time the 'for' loop runs, 
-      a character from the allChars string at the randomIndex position is added
+      a character is added from allChars string @ randomIndex position 
       to the generatedPassword string using the "charAt" and the += */
     }
 
-    // code below is to test the below code, can be removed
+    // code below is to test the above code, can be removed
     console.log("Generated Password:", generatedPassword);
 
   return generatedPassword;
@@ -189,7 +189,6 @@ var generatePassword = function () {
  function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
 
