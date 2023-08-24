@@ -30,9 +30,6 @@ var generatePassword = function () {
   // code below is to test the below code, can be removed
   console.log (pwLength + 10);
   
-
-
-
   // RL -- asks user whether or not to include lowercase letters,
   while (step === 1) {
     var lowercasePrompt= window.prompt('include lowercase characters? y or n:');
@@ -58,8 +55,6 @@ var generatePassword = function () {
 
   // code below is to test the below code, can be removed
   console.log("lowercase choice:", lowercaseChoice);
-
-
 
   // RL -- asks user whether or not to include uppercase letters, 
   while (step === 2) {
@@ -87,8 +82,6 @@ var generatePassword = function () {
   // code below is to test the below code, can be removed
   console.log("uppercase choice:", uppercaseChoice);
 
-
-
   // RL -- asks user whether or not to include numbers, 
   while (step === 3) {
     var numbercharPrompt= window.prompt('include numeric characters? y or n:');
@@ -115,8 +108,6 @@ var generatePassword = function () {
   // code below is to test the below code, can be removed
   console.log("numeric characters:", numbercharChoice);
 
-
-
   // RL -- asks user whether or not to special characters, 
   while (step === 4) {
     var specialcharPrompt= window.prompt('include special characters? y or n:');
@@ -141,14 +132,11 @@ var generatePassword = function () {
   // code below is to test the below code, can be removed
   console.log("special characters:", specialcharChoice);
 
-
-
   // RL -- declare strings for all characters
   var lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
   var uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var numericChars = '0123456789';
   var specialChars = '!@#$%^&*()_+[]{}|;:,.<>?';
-
 
   // RL -- combine strings chosen by user
   var allChars = "";
@@ -168,9 +156,7 @@ var generatePassword = function () {
   // code below is to test the below code, can be removed
   console.log("available characters: " + allChars);
 
-
-
-  // RL? instead of asking user to start over, can i send them back to start over with the character prompts?
+  // RL -- send them back to start over with the character prompts?
   if (allChars === "" && step !== false) {
     window.alert("no character types were selected. at least one must be selected. restart the process.");
     return ''; 
@@ -197,8 +183,6 @@ var generatePassword = function () {
     console.log("Generated Password:", generatedPassword);
 
   return generatedPassword;
-
-
 }
 
 // STARTER CODE -- Write password to the #password input
@@ -207,7 +191,6 @@ var generatePassword = function () {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 
