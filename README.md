@@ -10,7 +10,7 @@ Modified javascript code to deploy a website that will generate a password that 
 n/a
 
 ## Usage
-Link to deployed application: https://hjlee17.github.io/03-javascript-password-generator/
+Link to deployed application: https://hjlee17.github.io/03-hjlee-javascript-random-password-generator/
 
 A user can answer a series of prompts to generate a password that meets their criteria. 
 ![Password generator website.](assets/images/sc-1.png)
